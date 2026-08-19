@@ -1,8 +1,14 @@
+using AzureWebApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationInsightsTelemetry();
 
 // Add services to the container.
+string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString));
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
@@ -15,9 +21,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.MapGet("/health", () => Results.Ok("Healthy"))
-   .AllowAnonymous();
-   
 app.UseHttpsRedirection();
 
 app.UseRouting();
