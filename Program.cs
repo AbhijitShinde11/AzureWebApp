@@ -15,6 +15,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.MapGet("/health", () => Results.Ok("Healthy"))
+   .AllowAnonymous();
+   
 app.UseHttpsRedirection();
 
 app.UseRouting();
