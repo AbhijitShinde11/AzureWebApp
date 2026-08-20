@@ -1,0 +1,130 @@
+@page "/engineer"
+@rendermode InteractiveServer
+@using EngineerModel = BlazorApp.Data.Engineer
+@inject IEngineerService EngineerService
+
+<PageTitle>Engineers</PageTitle>
+
+<h1>Engineers</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">@(isEditing ? "Edit Engineer" : "Add Engineer")</h5>
+
+        <div class="row g-2 align-items-end">
+            <div class="col-md-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" @bind="engineerModel.Name" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Country</label>
+                <input class="form-control" @bind="engineerModel.Country" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Specialty</label>
+                <input class="form-control" @bind="engineerModel.Specialty" />
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" @onclick="SaveEngineer">@(isEditing ? "Update" : "Add")</button>
+                @if (isEditing)
+                {
+                    <button class="btn btn-secondary ms-2" @onclick="ResetForm">Cancel</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (isLoading)
+{
+    <p><em>Loading...</em></p>
+}
+else if (engineers.Count == 0)
+{
+    <p><em>No engineers found.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Specialty</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var engineer in engineers)
+            {
+                <tr>
+                    <td>@engineer.Name</td>
+                    <td>@engineer.Country</td>
+                    <td>@engineer.Specialty</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" @onclick="() => EditEngineer(engineer)">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => DeleteEngineer(engineer.id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<EngineerModel> engineers = new();
+    private EngineerModel engineerModel = new();
+    private bool isEditing = false;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadEngineers();
+    }
+
+    private async Task LoadEngineers()
+    {
+        isLoading = true;
+        engineers = await EngineerService.GetEngineerDetails();
+        isLoading = false;
+    }
+
+    private async Task SaveEngineer()
+    {
+        if (isEditing)
+        {
+            await EngineerService.UpdateEngineer(engineerModel);
+        }
+        else
+        {
+            await EngineerService.AddEngineer(engineerModel);
+        }
+
+        await LoadEngineers();
+        ResetForm();
+    }
+
+    private void EditEngineer(EngineerModel engineer)
+    {
+        engineerModel = new EngineerModel
+        {
+            id = engineer.id,
+            Name = engineer.Name,
+            Country = engineer.Country,
+            Specialty = engineer.Specialty
+        };
+        isEditing = true;
+    }
+
+    private async Task DeleteEngineer(Guid? id)
+    {
+        await EngineerService.DeleteEngineer(id);
+        await LoadEngineers();
+    }
+
+    private void ResetForm()
+    {
+        engineerModel = new EngineerModel();
+        isEditing = false;
+    }
+}

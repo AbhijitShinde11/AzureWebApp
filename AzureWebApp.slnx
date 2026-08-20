@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AzureWebApp.csproj" />
+  <Project Path="BlazorApp/BlazorApp.csproj" />
+</Solution>
