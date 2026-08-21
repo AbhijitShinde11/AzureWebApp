@@ -5,11 +5,11 @@ using StorageAccounts.Mvc.Services;
 
 namespace StorageAccounts.Mvc.Controllers
 {
-    public class AttendeeController(ITableStorageService tableStorageService, IBlobStorageService blobStorageService, IQueueStorageService queueStorageService) : Controller
+    public class AttendeeController(ITableStorageService tableStorageService, IBlobStorageService blobStorageService, IQueueService queueService) : Controller
     {
         private readonly ITableStorageService _tableStorageService = tableStorageService;
         private readonly IBlobStorageService _blobStorageService = blobStorageService;
-        private readonly IQueueStorageService _queueStorageService = queueStorageService;
+        private readonly IQueueService _queueService = queueService;
 
         public async Task<ActionResult> Index()
         {
@@ -67,7 +67,7 @@ namespace StorageAccounts.Mvc.Controllers
                     $"\n\r Thank you for registering for this event. " +
                     $"\n\r Your record has been saved for future reference. "
                 };
-                await _queueStorageService.SendMessage(email);
+                await _queueService.SendMessage(email);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -111,7 +111,7 @@ namespace StorageAccounts.Mvc.Controllers
                     $"\n\r Your record has been saved for future reference. "
                 };
 
-                await _queueStorageService.SendMessage(email);
+                await _queueService.SendMessage(email);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -141,7 +141,7 @@ namespace StorageAccounts.Mvc.Controllers
                     $"\n\r Your record has been saved for future reference. "
                 };
 
-                await _queueStorageService.SendMessage(email);
+                await _queueService.SendMessage(email);
 
                 return RedirectToAction(nameof(Index));
             }
