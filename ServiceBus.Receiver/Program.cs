@@ -1,7 +1,7 @@
 ﻿
 using Azure.Messaging.ServiceBus;
 
-const string serviceBusConnectionString = "=";
+const string serviceBusConnectionString = "";
 
 //const string queueName = "az-queue-learn";
 
