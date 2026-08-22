@@ -1,7 +1,7 @@
 ﻿
 using Azure.Messaging.ServiceBus;
 
-const string serviceBusConnectionString = "Endpoint=sb://az-service-bus-learn.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=X7nBp0kWuWM3H+PRTdRGMCIeuZYcDfAx2+ASbNQG/aU=";
+const string serviceBusConnectionString = "=";
 
 //const string queueName = "az-queue-learn";
 
