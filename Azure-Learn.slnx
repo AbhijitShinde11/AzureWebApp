@@ -2,4 +2,6 @@
   <Project Path="Azure-Learn.csproj" />
   <Project Path="BlazorApp/BlazorApp.csproj" />
   <Project Path="StorageAccounts.Mvc/StorageAccounts.Mvc.csproj" />
+  <Project Path="ServiceBus.Sender/ServiceBus.Sender.csproj" />
+  <Project Path="ServiceBus.Receiver/ServiceBus.Receiver.csproj" />
 </Solution>

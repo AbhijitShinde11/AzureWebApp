@@ -6700,11 +6700,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/abhijitshinde/Documents/AzureWebApp/AzureWebApp.csproj",
-      "projectName": "AzureWebApp",
-      "projectPath": "/Users/abhijitshinde/Documents/AzureWebApp/AzureWebApp.csproj",
+      "projectUniqueName": "/Users/abhijitshinde/Documents/Azure-Learn/Azure-Learn.csproj",
+      "projectName": "AzureLearn",
+      "projectPath": "/Users/abhijitshinde/Documents/Azure-Learn/Azure-Learn.csproj",
       "packagesPath": "/Users/abhijitshinde/.nuget/packages/",
-      "outputPath": "/Users/abhijitshinde/Documents/AzureWebApp/obj/",
+      "outputPath": "/Users/abhijitshinde/Documents/Azure-Learn/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/abhijitshinde/.nuget/NuGet/NuGet.Config"

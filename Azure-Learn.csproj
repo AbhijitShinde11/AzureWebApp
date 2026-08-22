@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>AzureLearn</RootNamespace>
     <AssemblyName>AzureLearn</AssemblyName>
-    <DefaultItemExcludes>$(DefaultItemExcludes);BlazorApp/**;StorageAccounts.Mvc/**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);BlazorApp/**;StorageAccounts.Mvc/**;ServiceBus.Sender/**;ServiceBus.Receiver/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
