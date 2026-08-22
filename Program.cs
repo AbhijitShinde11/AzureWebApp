@@ -1,4 +1,4 @@
-using AzureWebApp.Data;
+using AzureLearn.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

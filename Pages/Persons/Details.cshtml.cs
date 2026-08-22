@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using AzureWebApp.Data;
+using AzureLearn.Data;
 
-namespace AzureWebApp.Pages.Persons
+namespace AzureLearn.Pages.Persons
 {
     public class DetailsModel : PageModel
     {
-        private readonly AzureWebApp.Data.AppDbContext _context;
+        private readonly AzureLearn.Data.AppDbContext _context;
 
-        public DetailsModel(AzureWebApp.Data.AppDbContext context)
+        public DetailsModel(AzureLearn.Data.AppDbContext context)
         {
             _context = context;
         }

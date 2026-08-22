@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AzureWebApp.Data;
+using AzureLearn.Data;
 
-namespace AzureWebApp.Pages.Persons
+namespace AzureLearn.Pages.Persons
 {
     public class EditModel : PageModel
     {
-        private readonly AzureWebApp.Data.AppDbContext _context;
+        private readonly AzureLearn.Data.AppDbContext _context;
 
-        public EditModel(AzureWebApp.Data.AppDbContext context)
+        public EditModel(AzureLearn.Data.AppDbContext context)
         {
             _context = context;
         }

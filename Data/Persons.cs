@@ -1,4 +1,4 @@
-namespace AzureWebApp.Data
+namespace AzureLearn.Data
 {
     public class Person
     {

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace AzureWebApp.Data
+namespace AzureLearn.Data
 {
     public class AppDbContext : DbContext
     {

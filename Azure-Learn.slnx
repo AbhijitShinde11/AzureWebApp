@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="AzureWebApp.csproj" />
+  <Project Path="Azure-Learn.csproj" />
   <Project Path="BlazorApp/BlazorApp.csproj" />
   <Project Path="StorageAccounts.Mvc/StorageAccounts.Mvc.csproj" />
 </Solution>
